@@ -28,3 +28,14 @@ Dependency
 ----------
 
 - There are no dependencies to other extensions, that have to be installed.
+
+
+Plugins
+-------
+
+- [TinyMceAdvancedList](https://github.com/cliffparnitzky/TinyMceAdvancedList)
+- [TinyMceContextMenu](https://github.com/cliffparnitzky/TinyMceContextMenu)
+- [TinyMceGoogleMaps](https://github.com/cliffparnitzky/TinyMceGoogleMaps)
+- [TinyMceLinkAutoDetect](https://github.com/cliffparnitzky/TinyMceLinkAutoDetect)
+- [TinyMcePagebreak](https://github.com/cliffparnitzky/TinyMcePagebreak)
+- [TinyMceWordCount](https://github.com/cliffparnitzky/TinyMceWordCount)
