@@ -31,8 +31,4 @@
 $GLOBALS['TL_HOOKS']['outputBackendTemplate'][] = array('TinyMcePluginLoader', 'outputTemplate');
 $GLOBALS['TL_HOOKS']['outputFrontendTemplate'][] = array('TinyMcePluginLoader', 'outputTemplate');
 
-// Define regex used by loader to find configuration the plugins should be added to
-$GLOBALS['TINY_LOADER_REGEX'][] = "/tinyMCE_GZ.init\(.*\);/s";
-$GLOBALS['TINY_LOADER_REGEX'][] = "/tinyMCE.init\(.*\);/s";
-
 ?>

@@ -36,35 +36,47 @@
 */
 class TinyMcePluginLoader {
 	
-	private static $REGEX_PLUGIN_CONFIG = "/plugins\s*:\s*\"([A-Za-z0-9]*,?)*\",\n/Us";
+	private static $TINY_LOADER_REGEX = "/tinyMCE.init\(.*\);/s";
+	
+	private static $REGEX_PLUGIN_CONFIG = "/plugins\s*:\s*\"([0-9a-zA-Z]*,?)*\",\n/Us";
+	
+	private static $REGEX_BUTTONS_1_CONFIG = "/theme_advanced_buttons1\s*:\s*\"[0-9a-zA-Z,]*\",\n/Us";
+	private static $REGEX_BUTTONS_2_CONFIG = "/theme_advanced_buttons2\s*:\s*\"[0-9a-zA-Z,]*\",\n/Us";
+	private static $REGEX_BUTTONS_3_CONFIG = "/theme_advanced_buttons3\s*:\s*\"[0-9a-zA-Z,]*\",\n/Us";
 	
 	/**
 	* Adds the plugins to the config.
 	*/
 	public function outputTemplate($strContent, $strTemplate) {
 		if (count($GLOBALS['TINY_PLUGINS']) > 0 && ($strTemplate == 'be_main' || $strTemplate == 'fe_page')) {
-			foreach ($GLOBALS['TINY_LOADER_REGEX'] as $regex) {
-				if (preg_match($regex, $strContent, $tinyConfig) > 0) {
-					$strContent = preg_replace($regex, $this->addPlugins($tinyConfig[0]), $strContent);
-				}
+			if (preg_match(self::$TINY_LOADER_REGEX, $strContent, $tinyConfig) > 0) {
+				$strToReplace = $tinyConfig[0];
+				// adding plugin
+				$strToReplace = $this->addConfiguration($strToReplace, self::$REGEX_PLUGIN_CONFIG, 'TINY_PLUGINS');
+				// adding buttons
+				$strToReplace = $this->addConfiguration($strToReplace, self::$REGEX_BUTTONS_1_CONFIG, 'TINY_BUTTONS_1');
+				$strToReplace = $this->addConfiguration($strToReplace, self::$REGEX_BUTTONS_2_CONFIG, 'TINY_BUTTONS_2');
+				$strToReplace = $this->addConfiguration($strToReplace, self::$REGEX_BUTTONS_3_CONFIG, 'TINY_BUTTONS_3');
+				
+				$strContent = preg_replace(self::$TINY_LOADER_REGEX, $strToReplace, $strContent);
 			}
 		}
 		return $strContent;
 	}
 	
 	/**
-	 * Adding all additional plugins to the given config.
+	 * Adding all additional buttons in row 1 to the given config.
 	 */
-	private function addPlugins($tinyConfig) {
-		if (preg_match(self::$REGEX_PLUGIN_CONFIG, $tinyConfig, $pluginConfig) > 0) {
-			$strPluginConfig = substr($pluginConfig[0], 0, strlen($pluginConfig[0]) - 3);
-			foreach ($GLOBALS['TINY_PLUGINS'] as $plugin) {
-				$strPluginConfig .= ", " . $plugin;
+	private function addConfiguration($strToReplace, $regex, $lookup) {
+		if (preg_match($regex, $strToReplace, $config) !== FALSE && count($GLOBALS[$lookup]) > 0) {
+			$strConfig = substr($config[0], 0, strlen($config[0]) - 3);
+			foreach ($GLOBALS[$lookup] as $definition) {
+				$strConfig .= "," . $definition;
 			}
-			$strPluginConfig .= "\",\n";
-			return preg_replace(self::$REGEX_PLUGIN_CONFIG, $strPluginConfig, $tinyConfig);
+			$strConfig .= "\",\n";
+			return preg_replace($regex, $strConfig, $strToReplace);
 		}
-		return $tinyConfig;
+		return $strToReplace;
 	}
 }
 
