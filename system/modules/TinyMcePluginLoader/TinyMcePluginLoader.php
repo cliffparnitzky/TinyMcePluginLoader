@@ -38,11 +38,11 @@ class TinyMcePluginLoader {
 	
 	private static $TINY_LOADER_REGEX = "/tinyMCE.init\(.*\);/s";
 	
-	private static $REGEX_PLUGIN_CONFIG = "/plugins\s*:\s*\"([0-9a-zA-Z]*,?)*\",\n/Us";
+	private static $REGEX_PLUGIN_CONFIG = "/plugins\s*:\s*\"([0-9a-zA-Z]*,?)*\",?\n/Us";
 	
-	private static $REGEX_BUTTONS_1_CONFIG = "/theme_advanced_buttons1\s*:\s*\"[0-9a-zA-Z,]*\",\n/Us";
-	private static $REGEX_BUTTONS_2_CONFIG = "/theme_advanced_buttons2\s*:\s*\"[0-9a-zA-Z,]*\",\n/Us";
-	private static $REGEX_BUTTONS_3_CONFIG = "/theme_advanced_buttons3\s*:\s*\"[0-9a-zA-Z,]*\",\n/Us";
+	private static $REGEX_BUTTONS_1_CONFIG = "/theme_advanced_buttons1\s*:\s*\"[0-9a-zA-Z,]*\",?\n/Us";
+	private static $REGEX_BUTTONS_2_CONFIG = "/theme_advanced_buttons2\s*:\s*\"[0-9a-zA-Z,]*\",?\n/Us";
+	private static $REGEX_BUTTONS_3_CONFIG = "/theme_advanced_buttons3\s*:\s*\"[0-9a-zA-Z,]*\",?\n/Us";
 	
 	/**
 	* Adds the plugins to the config.
@@ -65,15 +65,19 @@ class TinyMcePluginLoader {
 	}
 	
 	/**
-	 * Adding all additional buttons in row 1 to the given config.
+	 * Adding all additional configurations to the given config.
 	 */
 	private function addConfiguration($strToReplace, $regex, $lookup) {
 		if (preg_match($regex, $strToReplace, $config) !== FALSE && count($GLOBALS[$lookup]) > 0) {
-			$strConfig = substr($config[0], 0, strlen($config[0]) - 3);
+			$strConfig = substr($config[0], 0, strrpos($config[0], "\""));
+			$strConfigEnd = substr($config[0], strrpos($config[0], "\""), strlen($config[0]));
 			foreach ($GLOBALS[$lookup] as $definition) {
-				$strConfig .= "," . $definition;
+				if (strpos($strConfig, $definition) === false) {
+					$strConfig .= ",";
+					$strConfig .= $definition;
+				}
 			}
-			$strConfig .= "\",\n";
+			$strConfig .= $strConfigEnd;
 			return preg_replace($regex, $strConfig, $strToReplace);
 		}
 		return $strToReplace;
