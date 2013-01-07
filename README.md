@@ -46,4 +46,4 @@ Plugins
 Adding plugins
 --------------
 
-Read the [wiki](https://github.com/cliffparnitzky/TinyMcePluginLoader/Creating-a-new-plugin).
+Read the [wiki](https://github.com/cliffparnitzky/TinyMcePluginLoader/wiki/Creating-a-new-plugin).
