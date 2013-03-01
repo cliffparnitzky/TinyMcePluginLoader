@@ -1,5 +1,5 @@
-Contao TinyMcePluginLoader Extension
-====================================
+Contao Extension: TinyMcePluginLoader
+=====================================
 
 Special extension that will load additional TinyMCE plugins.
 
@@ -21,7 +21,7 @@ Compatibility
 -------------
 
 - min. version: Contao 2.9.5
-- max. version: Contao 2.11.6
+- max. version: Contao 2.11.x
 
 
 Dependency
