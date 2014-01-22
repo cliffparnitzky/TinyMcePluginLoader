@@ -2,7 +2,7 @@
 
 /**
  * Contao Open Source CMS
- * Copyright (C) 2005-2013 Leo Feyer
+ * Copyright (C) 2005-2014 Leo Feyer
  *
  * Formerly known as TYPOlight Open Source CMS.
  *
@@ -21,13 +21,13 @@
  * Software Foundation website at <http://www.gnu.org/licenses/>.
  *
  * PHP version 5
- * @copyright  Cliff Parnitzky 2012-2013
+ * @copyright  Cliff Parnitzky 2012-2014
  * @author     Cliff Parnitzky
  * @package    TinyMcePluginLoader
  * @license    LGPL
  */
 
- // Adding HOOK to modify config in templates
+// Adding HOOK to modify config in templates
 $GLOBALS['TL_HOOKS']['outputBackendTemplate'][] = array('TinyMcePluginLoader', 'outputTemplate');
 $GLOBALS['TL_HOOKS']['outputFrontendTemplate'][] = array('TinyMcePluginLoader', 'outputTemplate');
 
