@@ -41,6 +41,7 @@ Plugins
 - [TinyMceLinkAutoDetect](https://github.com/cliffparnitzky/TinyMceLinkAutoDetect)
 - [TinyMcePagebreak](https://github.com/cliffparnitzky/TinyMcePagebreak)
 - [TinyMceWordCount](https://github.com/cliffparnitzky/TinyMceWordCount)
+- [TinyMceQuotes](https://github.com/cliffparnitzky/TinyMceQuotes)
 - [TinyMceYouTube](https://github.com/cliffparnitzky/TinyMceYouTube)
 
 (More plugins will be added soon. For wishes add a comment to [issue #3](https://github.com/cliffparnitzky/TinyMcePluginLoader/issues/3).)
