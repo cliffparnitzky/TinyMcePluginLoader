@@ -38,10 +38,12 @@ Plugins
 - [TinyMceAdvancedList](https://github.com/cliffparnitzky/TinyMceAdvancedList)
 - [TinyMceContextMenu](https://github.com/cliffparnitzky/TinyMceContextMenu)
 - [TinyMceGoogleMaps](https://github.com/cliffparnitzky/TinyMceGoogleMaps)
+- [TinyMceInsertDateTime](https://github.com/cliffparnitzky/TinyMceInsertDateTime)
 - [TinyMceLinkAutoDetect](https://github.com/cliffparnitzky/TinyMceLinkAutoDetect)
 - [TinyMcePagebreak](https://github.com/cliffparnitzky/TinyMcePagebreak)
-- [TinyMceWordCount](https://github.com/cliffparnitzky/TinyMceWordCount)
 - [TinyMceQuotes](https://github.com/cliffparnitzky/TinyMceQuotes)
+- [TinyMceStrikethrough](https://github.com/cliffparnitzky/TinyMceStrikethrough)
+- [TinyMceWordCount](https://github.com/cliffparnitzky/TinyMceWordCount)
 - [TinyMceYouTube](https://github.com/cliffparnitzky/TinyMceYouTube)
 
 (More plugins will be added soon. For wishes add a comment to [issue #3](https://github.com/cliffparnitzky/TinyMcePluginLoader/issues/3).)
