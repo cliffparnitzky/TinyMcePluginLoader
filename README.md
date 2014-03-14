@@ -40,6 +40,7 @@ Plugins
 - [TinyMceGoogleMaps](https://github.com/cliffparnitzky/TinyMceGoogleMaps)
 - [TinyMceInsertDateTime](https://github.com/cliffparnitzky/TinyMceInsertDateTime)
 - [TinyMceLinkAutoDetect](https://github.com/cliffparnitzky/TinyMceLinkAutoDetect)
+- [TinyMceLocalStorage](https://github.com/cliffparnitzky/TinyMceLocalStorage)
 - [TinyMcePagebreak](https://github.com/cliffparnitzky/TinyMcePagebreak)
 - [TinyMceQuotes](https://github.com/cliffparnitzky/TinyMceQuotes)
 - [TinyMceStrikethrough](https://github.com/cliffparnitzky/TinyMceStrikethrough)
