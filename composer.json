@@ -1,0 +1,36 @@
+{
+	"name":"cliffparnitzky/tiny-mce-plugin-loader",
+	"description":"Special extension that will load additional TinyMCE plugins.",
+	"keywords":["contao","tinymce","tiny editor","tinymce plugin"],
+	"type":"contao-module",
+	"license":"LGPL-3.0+",
+	"authors":[
+		{
+			"name":"Cliff Parnitzky",
+			"email":"contao@cliff-parnitzky.de",
+			"role":"Developer"
+		}
+	],
+	"support":{
+		"email":"contao@cliff-parnitzky.de",
+		"issues":"https://github.com/cliffparnitzky/TinyMcePluginLoader/issues",
+		"source":"https://github.com/cliffparnitzky/TinyMcePluginLoader"
+	},
+	"require":{
+		"php":">=5.3",
+		"contao/core":">=2.9.5,<4.0.0-dev",
+		"contao-community-alliance/composer-installer":"*",
+		"menatwork/contao-multicolumnwizard":"*",
+		"cliffparnitzky/technical-value-regex":"*"
+	},
+	"extra":{
+		"contao":{
+			"sources":{
+				"system/modules/TinyMcePluginLoader":"system/modules/TinyMcePluginLoader"
+			}
+		},
+		"branch-alias": {
+			"dev-master": "1.0.x-dev"
+		}
+	}
+}
