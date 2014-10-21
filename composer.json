@@ -19,9 +19,7 @@
 	"require":{
 		"php":">=5.3",
 		"contao/core":">=2.9.5,<3.3.0",
-		"contao-community-alliance/composer-installer":"*",
-		"menatwork/contao-multicolumnwizard":"*",
-		"cliffparnitzky/technical-value-regex":"*"
+		"contao-community-alliance/composer-installer":"*"
 	},
 	"extra":{
 		"contao":{
