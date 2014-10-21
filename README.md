@@ -7,9 +7,6 @@ Special extension that will load additional TinyMCE plugins.
 Installation
 ------------
 
-Installation
-------------
-
 The extension is not published in contao extension repository.
 Install it manually or via [composer](https://packagist.org/packages/cliffparnitzky/tiny-mce-plugin-loader).
 
