@@ -28,7 +28,7 @@
 			}
 		},
 		"branch-alias": {
-			"dev-master": "2.0.x-dev"
+			"dev-tinymce4": "2.0.x-dev"
 		}
 	}
 }
