@@ -36,7 +36,7 @@
 */
 class TinyMcePluginLoader extends System {
 	
-	private static $TINY_LOADER_REGEX = "/tinyMCE.init\(.*\);/Us";
+	private static $TINY_LOADER_REGEX = "/<script>\nwindow.tinymce && tinymce.init\(\{.*\}\);\n<\/script>/Us";
 	
 	/**
 	* Adds the plugins to the config.
@@ -46,9 +46,15 @@ class TinyMcePluginLoader extends System {
 			if (preg_match(self::$TINY_LOADER_REGEX, $strContent, $tinyConfig) > 0) {
 				$arrTinyConfig = explode("\n", $tinyConfig[0]);
 				
-				$startPart = $arrTinyConfig[0];
-				$endPart = $arrTinyConfig[count($arrTinyConfig) - 1];
-				$arrTinyConfig = $this->getTinyConfigArray($arrTinyConfig);
+				$arrStartParts = array();
+				$arrStartParts[] = $arrTinyConfig[0];
+				$arrStartParts[] = $arrTinyConfig[1];
+				
+				$arrEndParts = array();
+				$arrEndParts[] = $arrTinyConfig[count($arrTinyConfig) - 2];
+				$arrEndParts[] = $arrTinyConfig[count($arrTinyConfig) - 1];
+				
+				$arrTinyConfig = $this->getTinyConfigArray($arrTinyConfig, array_merge($arrStartParts, $arrEndParts));
 				
 				// adding plugins
 				$arrTinyConfig = $this->addConfiguration($arrTinyConfig, "plugins", 'TINY_PLUGINS');
@@ -65,7 +71,7 @@ class TinyMcePluginLoader extends System {
 					}
 				}
 				
-				$strContent = preg_replace(self::$TINY_LOADER_REGEX, $this->rebuildTinyConfig($startPart, $endPart, $arrTinyConfig), $strContent);
+				$strContent = preg_replace(self::$TINY_LOADER_REGEX, $this->rebuildTinyConfig($arrStartParts, $arrEndParts, $arrTinyConfig), $strContent);
 			}
 		}
 		return $strContent;
@@ -74,35 +80,48 @@ class TinyMcePluginLoader extends System {
 	/**
 	 * Creates an associated array containing the tiny config
 	 */
-	private function getTinyConfigArray($arrTinyConfig) {
+	private function getTinyConfigArray($arrTinyConfig, $arrExcludedRows) {
 		$assocTinyConfig = array();
 		
-		for ($i = 1; $i < (count($arrTinyConfig) - 1); $i++) {
-			$parts = preg_split("/\s*:\s*/Us", $arrTinyConfig[$i]);
-			
-			if (count ($parts) == 2) {
-				$value = $parts[1];
-				if (strrpos($parts[1], ",") == (strlen($parts[1]) - 1)) {
-					$value = substr($parts[1], 0, strlen($parts[1]) - 1);
-				}
+		$lastPart = "";
+		foreach ($arrTinyConfig as $row) {
+			if (!in_array($row, $arrExcludedRows)) {
+				$parts = explode(":", $row, 2);
 				
-				$assocTinyConfig[trim($parts[0])] = trim($value);
+				if (count($parts) == 2 && preg_match('/^[a-zA-Z0-9_-]+$/', trim($parts[0]))) {
+					$value = $parts[1];
+					$lastPart = trim($parts[0]);
+					$assocTinyConfig[$lastPart] = trim($value);
+				}
+				else {
+					if (strlen($lastPart) > 0) {
+						$assocTinyConfig[$lastPart] = $assocTinyConfig[$lastPart] . "\n" . $row;
+					}
+				}
 			}
 		}
-		
 		return $assocTinyConfig;
 	}
 	
 	/**
 	 * Rebuild the tiny config to a string
 	 */
-	private function rebuildTinyConfig ($startPart, $endPart, $arrTinyConfig) {
-		$strTinyConfig = $startPart . "\n";
-		foreach ($arrTinyConfig as $key=>$value) {
-			$strTinyConfig .= "  " . $key . " : " . $value . ",\n";
+	private function rebuildTinyConfig ($arrStartParts, $arrEndParts, $arrTinyConfig) {
+		$strTinyConfig = "";
+		foreach ($arrStartParts as $part) {
+			$strTinyConfig .= $part . "\n";
 		}
-		$strTinyConfig = substr($strTinyConfig, 0, strlen($parts[1]) - 2);
-		$strTinyConfig .= "\n" . $endPart;
+		
+		foreach ($arrTinyConfig as $key=>$value) {
+			$strTinyConfig .= "  " . $key . ": " . $value . "\n";
+		}
+		//$strTinyConfig = substr($strTinyConfig, 0, strlen($parts[1]) - 2);
+		//$strTinyConfig .= "\n" . $endPart;
+		
+		foreach ($arrEndParts as $part) {
+			$strTinyConfig .= $part . "\n";
+		}
+		
 		return $strTinyConfig;
 	}
 	
@@ -114,12 +133,12 @@ class TinyMcePluginLoader extends System {
 		
 		if ($modifiedTinyConfig[$key] && count($GLOBALS[$lookup]) > 0) {
 			$value = $modifiedTinyConfig[$key];
-			$endPart = "";
+			$endPart = ",";
 			
 			// remove double quote at end
-			if (strrpos($value, "\"") == (strlen($value) - 1)) {
-				$value = substr($value, 0, strlen($value) - 1);
-				$endPart = "\"";
+			if (strrpos($value, "\"") == (strlen($value) - 2)) {
+				$value = substr($value, 0, strlen($value) - 2);
+				$endPart = "\",";
 			}
 			
 			// adding new configs

@@ -1,7 +1,13 @@
+[![Latest Version on Packagist](http://img.shields.io/packagist/v/cliffparnitzky/tiny-mce-plugin-loader.svg?style=flat)](https://packagist.org/packages/cliffparnitzky/tiny-mce-plugin-loader)
+[![Installations via composer per month](http://img.shields.io/packagist/dm/cliffparnitzky/tiny-mce-plugin-loader.svg?style=flat)](https://packagist.org/packages/cliffparnitzky/tiny-mce-plugin-loader)
+[![Installations via composer total](http://img.shields.io/packagist/dt/cliffparnitzky/tiny-mce-plugin-loader.svg?style=flat)](https://packagist.org/packages/cliffparnitzky/tiny-mce-plugin-loader)
+
 Contao Extension: TinyMcePluginLoader
 =====================================
 
 Special extension that will load additional TinyMCE plugins.
+
+Now for TinyMCE 4.
 
 
 Installation
@@ -20,10 +26,8 @@ https://github.com/cliffparnitzky/TinyMcePluginLoader/issues
 Compatibility
 -------------
 
-- min. version: Contao 3.0.x
-- max. version: Contao 3.2.x
-
-(For Contao 2 look at the [master_c2 Branch](https://github.com/cliffparnitzky/TinyMcePluginLoader/tree/master_c2))
+- min. version: Contao 3.3.0
+- max. version: Contao 3.3.x
 
 
 Dependency
