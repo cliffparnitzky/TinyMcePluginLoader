@@ -59,9 +59,9 @@ class TinyMcePluginLoader extends System {
 				// adding plugins
 				$arrTinyConfig = $this->addConfiguration($arrTinyConfig, "plugins", 'TINY_PLUGINS');
 				// adding buttons
-				$arrTinyConfig = $this->addConfiguration($arrTinyConfig, "theme_advanced_buttons1", 'TINY_BUTTONS_1');
-				$arrTinyConfig = $this->addConfiguration($arrTinyConfig, "theme_advanced_buttons2", 'TINY_BUTTONS_2');
-				$arrTinyConfig = $this->addConfiguration($arrTinyConfig, "theme_advanced_buttons3", 'TINY_BUTTONS_3');
+				$arrTinyConfig = $this->addConfiguration($arrTinyConfig, "toolbar1", 'TINY_BUTTONS_1');
+				$arrTinyConfig = $this->addConfiguration($arrTinyConfig, "toolbar2", 'TINY_BUTTONS_2');
+				$arrTinyConfig = $this->addConfiguration($arrTinyConfig, "toolbar3", 'TINY_BUTTONS_3');
 				
 				// HOOK: Let other extensions modify this array
 				if (isset($GLOBALS['TL_HOOKS']['editTinyMcePluginLoaderConfig']) && is_array($GLOBALS['TL_HOOKS']['editTinyMcePluginLoaderConfig'])) {
@@ -113,10 +113,11 @@ class TinyMcePluginLoader extends System {
 		}
 		
 		foreach ($arrTinyConfig as $key=>$value) {
+			if (strrpos($value, ",") === false) {
+				$value .= ",";
+			}
 			$strTinyConfig .= "  " . $key . ": " . $value . "\n";
 		}
-		//$strTinyConfig = substr($strTinyConfig, 0, strlen($parts[1]) - 2);
-		//$strTinyConfig .= "\n" . $endPart;
 		
 		foreach ($arrEndParts as $part) {
 			$strTinyConfig .= $part . "\n";
@@ -131,29 +132,36 @@ class TinyMcePluginLoader extends System {
 	private function addConfiguration($arrTinyConfig, $key, $lookup) {
 		$modifiedTinyConfig = $arrTinyConfig;
 		
-		if ($modifiedTinyConfig[$key] && count($GLOBALS[$lookup]) > 0) {
+		if ($key == "toolbar1" && strlen($modifiedTinyConfig["toolbar"]) > 0 && strlen($modifiedTinyConfig[$key]) == 0) {
+			// replace toolbar key with toolbar1
+			$modifiedTinyConfig[$key] = $modifiedTinyConfig["toolbar"];
+			unset($modifiedTinyConfig["toolbar"]);
+		}
+		
+		if (count($GLOBALS[$lookup]) > 0) {
 			$value = $modifiedTinyConfig[$key];
-			$endPart = ",";
+			$value = substr($value, 1, strlen($value) - 3);
 			
-			// remove double quote at end
-			if (strrpos($value, "\"") == (strlen($value) - 2)) {
-				$value = substr($value, 0, strlen($value) - 2);
-				$endPart = "\",";
-			}
+			$arrParts = explode(" ", $value);
 			
 			// adding new configs
 			foreach ($GLOBALS[$lookup] as $definition) {
-				if (strpos($value, $definition) === false) {
-					$value .= ",";
-					$value .= $definition;
+				if (!in_array($definition, $arrParts)) {
+					if(strlen($modifiedTinyConfig[$key]) == 0) {
+						// removing the separators at the beginning
+						$definition = trim($definition);
+						if (strpos("|", $definition) == 0) {
+							$definition = substr($definition, 1);
+							$definition = trim($definition);
+						}
+					}
+					
+					$arrParts[] = $definition;
 				}
 			}
 			
-			// append double quote
-			$value .= $endPart;
-			
-			// add ne value into config array
-			$modifiedTinyConfig[$key] = $value;
+			// add new value into config array
+			$modifiedTinyConfig[$key] = "\"" . implode(" ", $arrParts) . "\",";
 		}
 
 		return $modifiedTinyConfig;
