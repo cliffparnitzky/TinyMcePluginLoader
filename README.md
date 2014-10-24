@@ -35,17 +35,17 @@ Dependency
 Plugins
 -------
 
-- [TinyMceAdvancedList](https://github.com/cliffparnitzky/TinyMceAdvancedList)
-- [TinyMceContextMenu](https://github.com/cliffparnitzky/TinyMceContextMenu)
-- [TinyMceGoogleMaps](https://github.com/cliffparnitzky/TinyMceGoogleMaps)
-- [TinyMceInsertDateTime](https://github.com/cliffparnitzky/TinyMceInsertDateTime)
-- [TinyMceLinkAutoDetect](https://github.com/cliffparnitzky/TinyMceLinkAutoDetect)
-- [TinyMceLocalStorage](https://github.com/cliffparnitzky/TinyMceLocalStorage)
-- [TinyMcePagebreak](https://github.com/cliffparnitzky/TinyMcePagebreak)
-- [TinyMceQuotes](https://github.com/cliffparnitzky/TinyMceQuotes)
-- [TinyMceStrikethrough](https://github.com/cliffparnitzky/TinyMceStrikethrough)
-- [TinyMceWordCount](https://github.com/cliffparnitzky/TinyMceWordCount)
-- [TinyMceYouTube](https://github.com/cliffparnitzky/TinyMceYouTube)
+- [TinyMceAdvancedList](https://github.com/cliffparnitzky/TinyMceAdvancedList) ![tinymce 3 ok](http://img.shields.io/badge/tinymce%203-ok-green.svg?style=flat) ![tinymce 4 nok](http://img.shields.io/badge/tinymce%204-ok-green.svg?style=flat) 
+- [TinyMceContextMenu](https://github.com/cliffparnitzky/TinyMceContextMenu) ![tinymce 3 ok](http://img.shields.io/badge/tinymce%203-ok-green.svg?style=flat) ![tinymce 4 nok](http://img.shields.io/badge/tinymce%204-nok-red.svg?style=flat) 
+- [TinyMceGoogleMaps](https://github.com/cliffparnitzky/TinyMceGoogleMaps) ![tinymce 3 ok](http://img.shields.io/badge/tinymce%203-ok-green.svg?style=flat) ![tinymce 4 nok](http://img.shields.io/badge/tinymce%204-nok-red.svg?style=flat) 
+- [TinyMceInsertDateTime](https://github.com/cliffparnitzky/TinyMceInsertDateTime) ![tinymce 3 ok](http://img.shields.io/badge/tinymce%203-ok-green.svg?style=flat) ![tinymce 4 nok](http://img.shields.io/badge/tinymce%204-nok-red.svg?style=flat) 
+- [TinyMceLinkAutoDetect](https://github.com/cliffparnitzky/TinyMceLinkAutoDetect) ![tinymce 3 ok](http://img.shields.io/badge/tinymce%203-ok-green.svg?style=flat) ![tinymce 4 nok](http://img.shields.io/badge/tinymce%204-nok-red.svg?style=flat) 
+- [TinyMceLocalStorage](https://github.com/cliffparnitzky/TinyMceLocalStorage) ![tinymce 3 ok](http://img.shields.io/badge/tinymce%203-ok-green.svg?style=flat) ![tinymce 4 nok](http://img.shields.io/badge/tinymce%204-nok-red.svg?style=flat) 
+- [TinyMcePagebreak](https://github.com/cliffparnitzky/TinyMcePagebreak) ![tinymce 3 ok](http://img.shields.io/badge/tinymce%203-ok-green.svg?style=flat) ![tinymce 4 nok](http://img.shields.io/badge/tinymce%204-nok-red.svg?style=flat) 
+- [TinyMceQuotes](https://github.com/cliffparnitzky/TinyMceQuotes) ![tinymce 3 ok](http://img.shields.io/badge/tinymce%203-ok-green.svg?style=flat) ![tinymce 4 nok](http://img.shields.io/badge/tinymce%204-nok-red.svg?style=flat) 
+- [TinyMceStrikethrough](https://github.com/cliffparnitzky/TinyMceStrikethrough) ![tinymce 3 ok](http://img.shields.io/badge/tinymce%203-ok-green.svg?style=flat) ![tinymce 4 nok](http://img.shields.io/badge/tinymce%204-nok-red.svg?style=flat) 
+- [TinyMceWordCount](https://github.com/cliffparnitzky/TinyMceWordCount) ![tinymce 3 ok](http://img.shields.io/badge/tinymce%203-ok-green.svg?style=flat) ![tinymce 4 nok](http://img.shields.io/badge/tinymce%204-nok-red.svg?style=flat) 
+- [TinyMceYouTube](https://github.com/cliffparnitzky/TinyMceYouTube) ![tinymce 3 ok](http://img.shields.io/badge/tinymce%203-ok-green.svg?style=flat) ![tinymce 4 nok](http://img.shields.io/badge/tinymce%204-nok-red.svg?style=flat) 
 
 (More plugins will be added soon. For wishes add a comment to [issue #3](https://github.com/cliffparnitzky/TinyMcePluginLoader/issues/3).)
 
