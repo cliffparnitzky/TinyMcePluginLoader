@@ -13,8 +13,10 @@ Now for TinyMCE 4.
 Installation
 ------------
 
-The extension is not published in contao extension repository.
-Install it manually or via [composer](https://packagist.org/packages/cliffparnitzky/tiny-mce-plugin-loader).
+Install the extension via composer: [cliffparnitzky/tiny-mce-plugin-loader](https://packagist.org/packages/cliffparnitzky/tiny-mce-plugin-loader).
+
+If you prefer to install it manually, download the latest release here: https://github.com/cliffparnitzky/TinyMcePluginLoader/releases
+
 
 
 Tracker
@@ -26,8 +28,8 @@ https://github.com/cliffparnitzky/TinyMcePluginLoader/issues
 Compatibility
 -------------
 
-- min. version: Contao 3.3.0
-- max. version: Contao 3.3.x
+- min. Contao version: >= 3.3.0
+- max. Contao version: <  3.5.0
 
 
 Dependency
@@ -50,6 +52,8 @@ Plugins
 - [TinyMceStrikethrough](https://github.com/cliffparnitzky/TinyMceStrikethrough) ![tinymce 3 ok](http://img.shields.io/badge/tinymce%203-ok-green.svg?style=flat) ![tinymce 4 nok](http://img.shields.io/badge/tinymce%204-nok-red.svg?style=flat) 
 - [TinyMceWordCount](https://github.com/cliffparnitzky/TinyMceWordCount) ![tinymce 3 ok](http://img.shields.io/badge/tinymce%203-ok-green.svg?style=flat) ![tinymce 4 nok](http://img.shields.io/badge/tinymce%204-nok-red.svg?style=flat) 
 - [TinyMceYouTube](https://github.com/cliffparnitzky/TinyMceYouTube) ![tinymce 3 ok](http://img.shields.io/badge/tinymce%203-ok-green.svg?style=flat) ![tinymce 4 nok](http://img.shields.io/badge/tinymce%204-nok-red.svg?style=flat) 
+
+Install all with: [cliffparnitzky/tiny-mce-bundle-all](https://packagist.org/packages/cliffparnitzky/tiny-mce-bundle-all)
 
 (More plugins will be added soon. For wishes add a comment to [issue #3](https://github.com/cliffparnitzky/TinyMcePluginLoader/issues/3).)
 

@@ -18,8 +18,11 @@
 	},
 	"require":{
 		"php":">=5.3",
-		"contao/core":">=3.3.0,<4.0.0-dev",
+		"contao/core":">=3.3.0,<3.5",
 		"contao-community-alliance/composer-installer":"*"
+	},
+	"conflict": {
+		"contao/core":"3.4.0,3.4.1,3.4.2"
 	},
 	"extra":{
 		"contao":{

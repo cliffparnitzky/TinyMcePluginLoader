@@ -3,7 +3,7 @@
 /**
  * Contao Open Source CMS
  *
- * Copyright (c) 2005-2014 Leo Feyer
+ * Copyright (c) 2005-2015 Leo Feyer
  *
  * @package TinyMcePluginLoader
  * @link    https://contao.org
@@ -12,9 +12,19 @@
 
 
 /**
+ * Register the namespaces
+ */
+ClassLoader::addNamespaces(array
+(
+	'TinyMcePluginLoader',
+));
+
+
+/**
  * Register the classes
  */
 ClassLoader::addClasses(array
 (
-	'TinyMcePluginLoader' => 'system/modules/TinyMcePluginLoader/TinyMcePluginLoader.php',
+	// Classes
+	'TinyMcePluginLoader\TinyMcePluginLoader' => 'system/modules/TinyMcePluginLoader/classes/TinyMcePluginLoader.php',
 ));

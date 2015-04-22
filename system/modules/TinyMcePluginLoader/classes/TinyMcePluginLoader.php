@@ -1,8 +1,8 @@
-<?php if (!defined('TL_ROOT')) die('You cannot access this file directly!');
+<?php
 
 /**
 * Contao Open Source CMS
-* Copyright (C) 2005-2014 Leo Feyer
+* Copyright (C) 2005-2015 Leo Feyer
 *
 * Formerly known as TYPOlight Open Source CMS.
 *
@@ -21,20 +21,25 @@
 * Software Foundation website at <http://www.gnu.org/licenses/>.
 *
 * PHP version 5
-* @copyright  Cliff Parnitzky 2012-2014
+* @copyright  Cliff Parnitzky 2012-2015
 * @author     Cliff Parnitzky
 * @package    TinyMcePluginLoader
 * @license    LGPL
 */
 
 /**
+ * Run in a custom namespace, so the class can be replaced
+ */
+namespace TinyMcePluginLoader; 
+
+/**
 * Class TinyMcePluginLoader
 *
 * Load additional TinyMCE plugins.
-* @copyright  Cliff Parnitzky 2012-2014
+* @copyright  Cliff Parnitzky 2012-2015
 * @author     Cliff Parnitzky
 */
-class TinyMcePluginLoader extends System {
+class TinyMcePluginLoader extends \System {
 	
 	private static $TINY_LOADER_REGEX = "/<script>\nwindow.tinymce && tinymce.init\(\{.*\}\);\n<\/script>/Us";
 	
@@ -43,7 +48,7 @@ class TinyMcePluginLoader extends System {
 	*/
 	public function outputTemplate($strContent, $strTemplate) {
 		if (count($GLOBALS['TINY_PLUGINS']) > 0 && ($strTemplate == 'be_main' || $strTemplate == 'fe_page')) {
-			if (preg_match(self::$TINY_LOADER_REGEX, $strContent, $tinyConfig) > 0) {
+			if (preg_match(static::$TINY_LOADER_REGEX, $strContent, $tinyConfig) > 0) {
 				$arrTinyConfig = explode("\n", $tinyConfig[0]);
 				
 				$arrStartParts = array();
@@ -71,7 +76,7 @@ class TinyMcePluginLoader extends System {
 					}
 				}
 				
-				$strContent = preg_replace(self::$TINY_LOADER_REGEX, $this->rebuildTinyConfig($arrStartParts, $arrEndParts, $arrTinyConfig), $strContent);
+				$strContent = preg_replace(static::$TINY_LOADER_REGEX, $this->rebuildTinyConfig($arrStartParts, $arrEndParts, $arrTinyConfig), $strContent);
 			}
 		}
 		return $strContent;
