@@ -153,12 +153,7 @@ class TinyMcePluginLoader extends \System {
 			foreach ($GLOBALS[$lookup] as $definition) {
 				if (!in_array($definition, $arrParts)) {
 					if(strlen($modifiedTinyConfig[$key]) == 0) {
-						// removing the separators at the beginning
 						$definition = trim($definition);
-						if (strpos("|", $definition) == 0) {
-							$definition = substr($definition, 1);
-							$definition = trim($definition);
-						}
 					}
 					
 					$arrParts[] = $definition;
