@@ -46,7 +46,7 @@ Plugins
 - [TinyMceStrikethrough](https://github.com/cliffparnitzky/TinyMceStrikethrough) ![tinymce 3 ok](http://img.shields.io/badge/tinymce%203-ok-green.svg?style=flat) ![tinymce 4 ok](http://img.shields.io/badge/tinymce%204-ok-green.svg?style=flat) 
 - [TinyMceUnderline](https://github.com/cliffparnitzky/TinyMceUnderline) ![tinymce 3 n/a](http://img.shields.io/badge/tinymce%203-n/a-lightgrey.svg?style=flat) ![tinymce 4 ok](http://img.shields.io/badge/tinymce%204-ok-green.svg?style=flat) 
 - [TinyMceWordCount](https://github.com/cliffparnitzky/TinyMceWordCount) ![tinymce 3 ok](http://img.shields.io/badge/tinymce%203-ok-green.svg?style=flat) ![tinymce 4 ok](http://img.shields.io/badge/tinymce%204-ok-green.svg?style=flat) 
-- [TinyMceYouTube](https://github.com/cliffparnitzky/TinyMceYouTube) ![tinymce 3 ok](http://img.shields.io/badge/tinymce%203-ok-green.svg?style=flat) ![tinymce 4 nok](http://img.shields.io/badge/tinymce%204-nok-red.svg?style=flat)
+- [TinyMceYouTube](https://github.com/cliffparnitzky/TinyMceYouTube) ![tinymce 3 ok](http://img.shields.io/badge/tinymce%203-ok-green.svg?style=flat) ![tinymce 4 ok](http://img.shields.io/badge/tinymce%204-ok-green.svg?style=flat)
 
 (More plugins will be added soon. For wishes add a comment to [issue #3](https://github.com/cliffparnitzky/TinyMcePluginLoader/issues/3).)
 
