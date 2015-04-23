@@ -37,6 +37,7 @@ Plugins
 
 - [TinyMceAdvancedList](https://github.com/cliffparnitzky/TinyMceAdvancedList) ![tinymce 3 ok](http://img.shields.io/badge/tinymce%203-ok-green.svg?style=flat) ![tinymce 4 nok](http://img.shields.io/badge/tinymce%204-ok-green.svg?style=flat)
 - [TinyMceContextMenu](https://github.com/cliffparnitzky/TinyMceContextMenu) ![tinymce 3 ok](http://img.shields.io/badge/tinymce%203-ok-green.svg?style=flat) ![tinymce 4 ok](http://img.shields.io/badge/tinymce%204-ok-green.svg?style=flat)
+- [TinyMceEmoticons](https://github.com/cliffparnitzky/TinyMceEmoticons) ![tinymce 3 n/a](http://img.shields.io/badge/tinymce%203-n/a-lightgrey.svg?style=flat) ![tinymce 4 ok](http://img.shields.io/badge/tinymce%204-ok-green.svg?style=flat) 
 - [TinyMceGoogleMaps](https://github.com/cliffparnitzky/TinyMceGoogleMaps) ![tinymce 3 ok](http://img.shields.io/badge/tinymce%203-ok-green.svg?style=flat) ![tinymce 4 nok](http://img.shields.io/badge/tinymce%204-nok-red.svg?style=flat)
 - [TinyMceHorizontalRuler](https://github.com/cliffparnitzky/TinyMceHorizontalRuler) ![tinymce 3 n/a](http://img.shields.io/badge/tinymce%203-n/a-lightgrey.svg?style=flat) ![tinymce 4 ok](http://img.shields.io/badge/tinymce%204-ok-green.svg?style=flat) 
 - [TinyMceInsertDateTime](https://github.com/cliffparnitzky/TinyMceInsertDateTime) ![tinymce 3 ok](http://img.shields.io/badge/tinymce%203-ok-green.svg?style=flat) ![tinymce 4 ok](http://img.shields.io/badge/tinymce%204-ok-green.svg?style=flat)
