@@ -5,7 +5,7 @@
 Contao Extension: TinyMcePluginLoader
 =====================================
 
-Special extension that will load additional TinyMCE plugins.
+Special extension that will load additional TinyMCE plugins (check out the avauilable plugins: [here](#Plugins)).
 
 Now for TinyMCE 4.
 
