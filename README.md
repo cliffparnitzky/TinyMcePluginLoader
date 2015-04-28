@@ -32,15 +32,13 @@ Dependency
 - There are no dependencies to other extensions, that have to be installed.
 
 
-Plugins
--------
-
 - [TinyMceAdvancedList](https://github.com/cliffparnitzky/TinyMceAdvancedList) ![tinymce 3 ok](http://img.shields.io/badge/tinymce%203-ok-green.svg?style=flat) ![tinymce 4 nok](http://img.shields.io/badge/tinymce%204-ok-green.svg?style=flat)
 - [TinyMceColorpicker](https://github.com/cliffparnitzky/TinyMceColorpicker) ![tinymce 3 n/a](http://img.shields.io/badge/tinymce%203-n/a-lightgrey.svg?style=flat) ![tinymce 4 ok](http://img.shields.io/badge/tinymce%204-ok-green.svg?style=flat)
 - [TinyMceContextMenu](https://github.com/cliffparnitzky/TinyMceContextMenu) ![tinymce 3 ok](http://img.shields.io/badge/tinymce%203-ok-green.svg?style=flat) ![tinymce 4 ok](http://img.shields.io/badge/tinymce%204-ok-green.svg?style=flat)
-- [TinyMceEmoticons](https://github.com/cliffparnitzky/TinyMceEmoticons) ![tinymce 3 n/a](http://img.shields.io/badge/tinymce%203-n/a-lightgrey.svg?style=flat) ![tinymce 4 ok](http://img.shields.io/badge/tinymce%204-ok-green.svg?style=flat) 
+- [TinyMceEmoticons](https://github.com/cliffparnitzky/TinyMceEmoticons) ![tinymce 3 n/a](http://img.shields.io/badge/tinymce%203-n/a-lightgrey.svg?style=flat) ![tinymce 4 ok](http://img.shields.io/badge/tinymce%204-ok-green.svg?style=flat)
+- [TinyMceFontAwesome](https://github.com/cliffparnitzky/TinyMceFontAwesome) ![tinymce 3 n/a](http://img.shields.io/badge/tinymce%203-n/a-lightgrey.svg?style=flat) ![tinymce 4 ok](http://img.shields.io/badge/tinymce%204-ok-green.svg?style=flat)
 - [TinyMceGoogleMaps](https://github.com/cliffparnitzky/TinyMceGoogleMaps) ![tinymce 3 ok](http://img.shields.io/badge/tinymce%203-ok-green.svg?style=flat) ![tinymce 4 nok](http://img.shields.io/badge/tinymce%204-nok-red.svg?style=flat)
-- [TinyMceHorizontalRuler](https://github.com/cliffparnitzky/TinyMceHorizontalRuler) ![tinymce 3 n/a](http://img.shields.io/badge/tinymce%203-n/a-lightgrey.svg?style=flat) ![tinymce 4 ok](http://img.shields.io/badge/tinymce%204-ok-green.svg?style=flat) 
+- [TinyMceHorizontalRuler](https://github.com/cliffparnitzky/TinyMceHorizontalRuler) ![tinymce 3 n/a](http://img.shields.io/badge/tinymce%203-n/a-lightgrey.svg?style=flat) ![tinymce 4 ok](http://img.shields.io/badge/tinymce%204-ok-green.svg?style=flat)
 - [TinyMceInsertDateTime](https://github.com/cliffparnitzky/TinyMceInsertDateTime) ![tinymce 3 ok](http://img.shields.io/badge/tinymce%203-ok-green.svg?style=flat) ![tinymce 4 ok](http://img.shields.io/badge/tinymce%204-ok-green.svg?style=flat)
 - [TinyMceLinkAutoDetect](https://github.com/cliffparnitzky/TinyMceLinkAutoDetect) ![tinymce 3 ok](http://img.shields.io/badge/tinymce%203-ok-green.svg?style=flat) ![tinymce 4 ok](http://img.shields.io/badge/tinymce%204-ok-green.svg?style=flat)
 - [TinyMceLocalStorage](https://github.com/cliffparnitzky/TinyMceLocalStorage) ![tinymce 3 ok](http://img.shields.io/badge/tinymce%203-ok-green.svg?style=flat) ![tinymce 4 nok](http://img.shields.io/badge/tinymce%204-nok-red.svg?style=flat)
@@ -54,6 +52,14 @@ Plugins
 - [TinyMceYouTube](https://github.com/cliffparnitzky/TinyMceYouTube) ![tinymce 3 ok](http://img.shields.io/badge/tinymce%203-ok-green.svg?style=flat) ![tinymce 4 ok](http://img.shields.io/badge/tinymce%204-ok-green.svg?style=flat)
 
 (More plugins will be added soon. For wishes add a comment to [issue #3](https://github.com/cliffparnitzky/TinyMcePluginLoader/issues/3).)
+
+
+Bundles
+-------
+
+- [cliffparnitzky/tiny-mce-bundle-all](https://packagist.org/packages/cliffparnitzky/tiny-mce-bundle-all) - installs all plugins
+- [cliffparnitzky/tiny-mce-bundle-text-color](https://packagist.org/packages/cliffparnitzky/tiny-mce-bundle-text-color) - installs the text color plugins
+
 
 Adding plugins
 --------------
