@@ -59,11 +59,17 @@ Plugins
 - [TinyMceWordCount](https://github.com/cliffparnitzky/TinyMceWordCount) ![tinymce 3 ok](http://img.shields.io/badge/tinymce%203-ok-green.svg?style=flat) ![tinymce 4 ok](http://img.shields.io/badge/tinymce%204-ok-green.svg?style=flat)
 - [TinyMceYouTube](https://github.com/cliffparnitzky/TinyMceYouTube) ![tinymce 3 ok](http://img.shields.io/badge/tinymce%203-ok-green.svg?style=flat) ![tinymce 4 ok](http://img.shields.io/badge/tinymce%204-ok-green.svg?style=flat)
 
-Install all with: [cliffparnitzky/tiny-mce-bundle-all](https://packagist.org/packages/cliffparnitzky/tiny-mce-bundle-all)
-
 (More plugins will be added soon. For wishes add a comment to [issue #3](https://github.com/cliffparnitzky/TinyMcePluginLoader/issues/3).)
 
-Adding plugins
---------------
+
+Bundles
+-------
+
+- [cliffparnitzky/tiny-mce-bundle-all](https://packagist.org/packages/cliffparnitzky/tiny-mce-bundle-all) - installs all plugins
+- [cliffparnitzky/tiny-mce-bundle-text-color](https://packagist.org/packages/cliffparnitzky/tiny-mce-bundle-text-color) - installs the text color plugins
+
+
+Adding plugins as developer
+---------------------------
 
 Read the [wiki](https://github.com/cliffparnitzky/TinyMcePluginLoader/wiki/Creating-a-new-plugin).
