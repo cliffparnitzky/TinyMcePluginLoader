@@ -33,6 +33,7 @@ Dependency
 
 
 - [TinyMceAdvancedList](https://github.com/cliffparnitzky/TinyMceAdvancedList) ![tinymce 3 ok](http://img.shields.io/badge/tinymce%203-ok-green.svg?style=flat) ![tinymce 4 nok](http://img.shields.io/badge/tinymce%204-ok-green.svg?style=flat)
+- [TinyMceAnchor](https://github.com/cliffparnitzky/TinyMceAnchor) ![tinymce 3 n/a](http://img.shields.io/badge/tinymce%203-n/a-lightgrey.svg?style=flat) ![tinymce 4 ok](http://img.shields.io/badge/tinymce%204-ok-green.svg?style=flat)
 - [TinyMceCodeMirror](https://github.com/cliffparnitzky/TinyMceCodeMirror) ![tinymce 3 n/a](http://img.shields.io/badge/tinymce%203-n/a-lightgrey.svg?style=flat) ![tinymce 4 ok](http://img.shields.io/badge/tinymce%204-ok-green.svg?style=flat)
 - [TinyMceColorpicker](https://github.com/cliffparnitzky/TinyMceColorpicker) ![tinymce 3 n/a](http://img.shields.io/badge/tinymce%203-n/a-lightgrey.svg?style=flat) ![tinymce 4 ok](http://img.shields.io/badge/tinymce%204-ok-green.svg?style=flat)
 - [TinyMceContextMenu](https://github.com/cliffparnitzky/TinyMceContextMenu) ![tinymce 3 ok](http://img.shields.io/badge/tinymce%203-ok-green.svg?style=flat) ![tinymce 4 ok](http://img.shields.io/badge/tinymce%204-ok-green.svg?style=flat)
