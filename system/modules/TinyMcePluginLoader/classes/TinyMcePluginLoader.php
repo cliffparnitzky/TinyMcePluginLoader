@@ -47,7 +47,11 @@ class TinyMcePluginLoader extends \System {
 	* Adds the plugins to the config.
 	*/
 	public function outputTemplate($strContent, $strTemplate) {
-		if ((count($GLOBALS['TINY_PLUGINS']) > 0 || count($GLOBALS['TL_HOOKS']['editTinyMcePluginLoaderConfig']) > 0) && ($strTemplate == 'be_main' || $strTemplate == 'fe_page')) {
+		if ((count($GLOBALS['TINY_PLUGINS']) > 0 || 
+				 count($GLOBALS['TINY_BUTTONS_1']) > 0 || 
+				 count($GLOBALS['TINY_BUTTONS_2']) > 0 || 
+				 count($GLOBALS['TINY_BUTTONS_3']) > 0 || 
+				 count($GLOBALS['TL_HOOKS']['editTinyMcePluginLoaderConfig']) > 0) && ($strTemplate == 'be_main' || $strTemplate == 'fe_page')) {
 			if (preg_match(static::$TINY_LOADER_REGEX, $strContent, $tinyConfig) > 0) {
 				$arrTinyConfig = explode("\n", $tinyConfig[0]);
 				
