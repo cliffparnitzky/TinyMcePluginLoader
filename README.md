@@ -88,20 +88,20 @@ These are the currently available setups, which redefines the TinyMCE toolbars:
 Additional information
 ----------------------
 
-## Special notes
+### Special notes
 
 There is nothing special to pay attention to.
 
-## Information in the wiki
+### Information in the wiki
 
-### Create a new ...
+#### Create a new ...
 
 * [Creating a new plugin](wiki/Creating-a-new-plugin)
 * [Creating a new setup](wiki/Creating-a-new-setup)
 
-### Installation hints
+#### Installation hints
 * [Install manually](wiki/Install-manually)
 
-### Bug report hints
+#### Bug report hints
 
 * [Report a bug](wiki/Report-a-bug)
