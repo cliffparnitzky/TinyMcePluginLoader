@@ -41,6 +41,8 @@ Dependency
 Plugins
 -------
 
+These are the currently integrated plugins and their respective availability status:
+
 - [TinyMceAdvancedList](https://github.com/cliffparnitzky/TinyMceAdvancedList) ![tinymce 3 ok](http://img.shields.io/badge/tinymce%203-ok-green.svg?style=flat) ![tinymce 4 nok](http://img.shields.io/badge/tinymce%204-ok-green.svg?style=flat)
 - [TinyMceAnchor](https://github.com/cliffparnitzky/TinyMceAnchor) ![tinymce 3 n/a](http://img.shields.io/badge/tinymce%203-n/a-lightgrey.svg?style=flat) ![tinymce 4 ok](http://img.shields.io/badge/tinymce%204-ok-green.svg?style=flat)
 - [TinyMceCodeMirror](https://github.com/cliffparnitzky/TinyMceCodeMirror) ![tinymce 3 n/a](http://img.shields.io/badge/tinymce%203-n/a-lightgrey.svg?style=flat) ![tinymce 4 ok](http://img.shields.io/badge/tinymce%204-ok-green.svg?style=flat)
@@ -68,11 +70,38 @@ Plugins
 Bundles
 -------
 
-- [cliffparnitzky/tiny-mce-bundle-all](https://packagist.org/packages/cliffparnitzky/tiny-mce-bundle-all) - installs all plugins
-- [cliffparnitzky/tiny-mce-bundle-text-color](https://packagist.org/packages/cliffparnitzky/tiny-mce-bundle-text-color) - installs the text color plugins
+These are the currently available bundles (packages of plugins) for easier installation via composer:
+
+- [TinyMceBundleAll](https://github.com/cliffparnitzky/TinyMceBundleAll) - installs all available plugins
+- [TinyMceBundleClassic](https://github.com/cliffparnitzky/TinyMceBundleClassic) - installs the missing default plugins known from TinyMCE 3
+- [TinyMceBundleTextColor](https://github.com/cliffparnitzky/TinyMceBundleTextColor) - installs the text color plugins
 
 
-Adding plugins as developer
----------------------------
+Setups
+------
 
-Read the [wiki](https://github.com/cliffparnitzky/TinyMcePluginLoader/wiki/Creating-a-new-plugin).
+These are the currently available setups, which redefines the TinyMCE toolbars:
+
+- [TinyMceZUpClassic](https://github.com/cliffparnitzky/TinyMceZUpClassic) - creates the toolbars known from TinyMCE 3
+
+
+Additional information
+----------------------
+
+## Special notes
+
+There is nothing special to pay attention to.
+
+## Information in the wiki
+
+### Create a new ...
+
+* [Creating a new plugin](wiki/Creating-a-new-plugin)
+* [Creating a new setup](wiki/Creating-a-new-setup)
+
+### Installation hints
+* [Install manually](wiki/Install-manually)
+
+### Bug report hints
+
+* [Report a bug](wiki/Report-a-bug)
