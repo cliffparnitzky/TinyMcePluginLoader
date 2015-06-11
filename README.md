@@ -29,7 +29,7 @@ Compatibility
 -------------
 
 - min. Contao version: >= 3.3.0
-- max. Contao version: <  3.5.0
+- max. Contao version: <  3.6.0
 
 
 Dependency
@@ -38,8 +38,13 @@ Dependency
 - There are no dependencies to other extensions, that have to be installed.
 
 
-Plugins
--------
+Components
+----------
+
+![Components](components.jpg)
+
+
+### Plugins
 
 These are the currently integrated plugins and their respective availability status:
 
@@ -69,8 +74,7 @@ These are the currently integrated plugins and their respective availability sta
 (More plugins will be added soon. For wishes add a comment to [issue #3](https://github.com/cliffparnitzky/TinyMcePluginLoader/issues/3).)
 
 
-Bundles
--------
+### Bundles
 
 These are the currently available bundles (packages of plugins) for easier installation via composer:
 
@@ -79,8 +83,7 @@ These are the currently available bundles (packages of plugins) for easier insta
 - [TinyMceBundleTextColor](https://github.com/cliffparnitzky/TinyMceBundleTextColor) - installs the text color plugins
 
 
-Setups
-------
+### Setups
 
 These are the currently available setups, which redefines the TinyMCE toolbars:
 
@@ -98,12 +101,13 @@ There is nothing special to pay attention to.
 
 #### Create a new ...
 
-* [Creating a new plugin](wiki/Creating-a-new-plugin)
-* [Creating a new setup](wiki/Creating-a-new-setup)
+* [Creating a new plugin](https://github.com/cliffparnitzky/TinyMcePluginLoader/wiki/Creating-a-new-plugin)
+* [Creating a new bundle](https://github.com/cliffparnitzky/TinyMcePluginLoader/wiki/Creating-a-new-bundle)
+* [Creating a new setup](https://github.com/cliffparnitzky/TinyMcePluginLoader/wiki/Creating-a-new-setup)
 
 #### Installation hints
-* [Install manually](wiki/Install-manually)
+* [Install manually](https://github.com/cliffparnitzky/TinyMcePluginLoader/wiki/Install-manually)
 
 #### Bug report hints
 
-* [Report a bug](wiki/Report-a-bug)
+* [Report a bug](https://github.com/cliffparnitzky/TinyMcePluginLoader/wiki/Report-a-bug)
