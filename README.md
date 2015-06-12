@@ -41,14 +41,14 @@ Dependency
 Components
 ----------
 
-![Components](components.jpg)
+![Components](components.png)
 
 
 ### Plugins
 
 These are the currently integrated plugins and their respective availability status:
 
-| Plugin                                                                             | TinyMCE 3 compatible                                                                   | TinyMCE 3 compatible                                                             |
+| Plugin                                                                             | TinyMCE 3 compatible                                                                   | TinyMCE 4 compatible                                                             |
 | ---------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------: |
 | [TinyMceAdvancedList](https://github.com/cliffparnitzky/TinyMceAdvancedList)       | ![tinymce 3 ok](http://img.shields.io/badge/tinymce%203-ok-green.svg?style=flat)       | ![tinymce 4 ok](http://img.shields.io/badge/tinymce%204-ok-green.svg?style=flat) |
 | [TinyMceAnchor](https://github.com/cliffparnitzky/TinyMceAnchor)                   | ![tinymce 3 n/a](http://img.shields.io/badge/tinymce%203-n/a-lightgrey.svg?style=flat) | ![tinymce 4 ok](http://img.shields.io/badge/tinymce%204-ok-green.svg?style=flat) |
