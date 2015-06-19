@@ -26,6 +26,9 @@
 			"sources":{
 				"system/modules/TinyMcePluginLoader":"system/modules/TinyMcePluginLoader"
 			}
+		},
+		"branch-alias": {
+			"dev-master": "1.0.x-dev"
 		}
 	}
 }
