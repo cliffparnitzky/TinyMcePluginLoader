@@ -46,7 +46,7 @@ Components
 
 ### Plugins
 
-These are the currently integrated plugins and their respective availability status:
+These are the currently integrated plugins and their respective availability status. The plugins must be installed separately, either individually or via [bundle](#bundles).
 
 | Plugin                                                                               | TinyMCE 3 compatible                                                                   | TinyMCE 4 compatible                                                             |
 | ------------------------------------------------------------------------------------ | :------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------: |
