@@ -31,7 +31,7 @@
 			}
 		},
 		"branch-alias": {
-			"dev-tinymce4": "2.1.x-dev"
+			"dev-master": "2.1.x-dev"
 		}
 	}
 }
