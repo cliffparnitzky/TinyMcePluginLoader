@@ -28,7 +28,7 @@
 			}
 		},
 		"branch-alias": {
-			"dev-master": "1.0.x-dev"
+			"dev-support/contao3.2": "1.0.x-dev"
 		}
 	}
 }
