@@ -51,36 +51,42 @@ class TinyMcePluginLoader extends \System {
 				 count($GLOBALS['TINY_BUTTONS_1']) > 0 || 
 				 count($GLOBALS['TINY_BUTTONS_2']) > 0 || 
 				 count($GLOBALS['TINY_BUTTONS_3']) > 0 || 
-				 count($GLOBALS['TL_HOOKS']['editTinyMcePluginLoaderConfig']) > 0) && ($strTemplate == 'be_main' || $strTemplate == 'fe_page')) {
-			if (preg_match(static::$TINY_LOADER_REGEX, $strContent, $tinyConfig) > 0) {
-				$arrTinyConfig = explode("\n", $tinyConfig[0]);
+				 count($GLOBALS['TL_HOOKS']['editTinyMcePluginLoaderConfig']) > 0) && 
+				 (strrpos($strTemplate, 'be_main', -strlen($strTemplate)) !== FALSE || strrpos($strTemplate, 'fe_page', -strlen($strTemplate)) !== FALSE)) {
+			if (preg_match_all(static::$TINY_LOADER_REGEX, $strContent, $tinyConfigs) > 0) {
+				$arrContentElements = preg_split(static::$TINY_LOADER_REGEX, $strContent);
+				$insertCounter = 0;
 				
-				$arrStartParts = array();
-				$arrStartParts[] = $arrTinyConfig[0];
-				$arrStartParts[] = $arrTinyConfig[1];
-				
-				$arrEndParts = array();
-				$arrEndParts[] = $arrTinyConfig[count($arrTinyConfig) - 2];
-				$arrEndParts[] = $arrTinyConfig[count($arrTinyConfig) - 1];
-				
-				$arrTinyConfig = $this->getTinyConfigArray($arrTinyConfig, array_merge($arrStartParts, $arrEndParts));
-				
-				// adding plugins
-				$arrTinyConfig = $this->addConfiguration($arrTinyConfig, "plugins", 'TINY_PLUGINS');
-				// adding buttons
-				$arrTinyConfig = $this->addConfiguration($arrTinyConfig, "toolbar1", 'TINY_BUTTONS_1');
-				$arrTinyConfig = $this->addConfiguration($arrTinyConfig, "toolbar2", 'TINY_BUTTONS_2');
-				$arrTinyConfig = $this->addConfiguration($arrTinyConfig, "toolbar3", 'TINY_BUTTONS_3');
-				
-				// HOOK: Let other extensions modify this array
-				if (isset($GLOBALS['TL_HOOKS']['editTinyMcePluginLoaderConfig']) && is_array($GLOBALS['TL_HOOKS']['editTinyMcePluginLoaderConfig'])) {
-					foreach ($GLOBALS['TL_HOOKS']['editTinyMcePluginLoaderConfig'] as $callback) {
-						$this->import($callback[0]);
-						$arrTinyConfig = $this->$callback[0]->$callback[1]($arrTinyConfig);
+				foreach ($tinyConfigs[0] as $tinyConfig) {
+					$arrTinyConfig = explode("\n", $tinyConfig);
+					
+					$arrStartParts = array();
+					$arrStartParts[] = $arrTinyConfig[0];
+					$arrStartParts[] = $arrTinyConfig[1];
+					
+					$arrEndParts = array();
+					$arrEndParts[] = $arrTinyConfig[count($arrTinyConfig) - 2];
+					$arrEndParts[] = $arrTinyConfig[count($arrTinyConfig) - 1];
+					
+					$arrTinyConfig = $this->getTinyConfigArray($arrTinyConfig, array_merge($arrStartParts, $arrEndParts));
+					
+					// adding plugins
+					$arrTinyConfig = $this->addConfiguration($arrTinyConfig, "plugins", 'TINY_PLUGINS');
+					// adding buttons
+					$arrTinyConfig = $this->addConfiguration($arrTinyConfig, "toolbar1", 'TINY_BUTTONS_1');
+					$arrTinyConfig = $this->addConfiguration($arrTinyConfig, "toolbar2", 'TINY_BUTTONS_2');
+					$arrTinyConfig = $this->addConfiguration($arrTinyConfig, "toolbar3", 'TINY_BUTTONS_3');
+					
+					// HOOK: Let other extensions modify this array
+					if (isset($GLOBALS['TL_HOOKS']['editTinyMcePluginLoaderConfig']) && is_array($GLOBALS['TL_HOOKS']['editTinyMcePluginLoaderConfig'])) {
+						foreach ($GLOBALS['TL_HOOKS']['editTinyMcePluginLoaderConfig'] as $callback) {
+							$this->import($callback[0]);
+							$arrTinyConfig = $this->$callback[0]->$callback[1]($arrTinyConfig);
+						}
 					}
+					array_splice($arrContentElements, (($insertCounter++ * 2)  + 1), 0, array($this->rebuildTinyConfig($arrStartParts, $arrEndParts, $arrTinyConfig)));
 				}
-				
-				$strContent = preg_replace(static::$TINY_LOADER_REGEX, $this->rebuildTinyConfig($arrStartParts, $arrEndParts, $arrTinyConfig), $strContent);
+				$strContent = implode('', $arrContentElements);
 			}
 		}
 		return $strContent;
@@ -149,7 +155,7 @@ class TinyMcePluginLoader extends \System {
 		
 		if (count($GLOBALS[$lookup]) > 0) {
 			$value = $modifiedTinyConfig[$key];
-			$value = substr($value, 1, strlen($value) - 3);
+			$value = $this->getCleanValue($value);
 			
 			$arrParts = explode(" ", $value);
 			
@@ -169,6 +175,13 @@ class TinyMcePluginLoader extends \System {
 		}
 
 		return $modifiedTinyConfig;
+	}
+	
+	/**
+	 * Remove surrounding quotes, etc.
+	 */
+	private function getCleanValue($strValue) {
+		return substr($strValue, 1, strlen($strValue) - 3);
 	}
 }
 
