@@ -41,7 +41,7 @@ namespace TinyMcePluginLoader;
 */
 class TinyMcePluginLoader extends \System {
 	
-	private static $TINY_LOADER_REGEX = "/<script>(\n|\r\n)window.tinymce && tinymce.init\(\{.*\}\);(\n|\r\n)<\/script>/Us";
+	private static $TINY_LOADER_REGEX = "/<script>(\n|\r\n)+window.tinymce && tinymce.init\(\{.*\}\);(\n|\r\n)+<\/script>/Us";
 	
 	/**
 	* Adds the plugins to the config.
@@ -62,10 +62,24 @@ class TinyMcePluginLoader extends \System {
 					
 					$arrStartParts = array();
 					$arrStartParts[] = $arrTinyConfig[0];
-					$arrStartParts[] = $arrTinyConfig[1];
+					$cnt = 1;
+					$strStartPartsTwo = $arrTinyConfig[$cnt];
+					while(strlen($strStartPartsTwo) == 0)
+					{
+						$cnt++;
+						$strStartPartsTwo = $arrTinyConfig[$cnt];
+					}
+					$arrStartParts[] = $strStartPartsTwo;
 					
 					$arrEndParts = array();
-					$arrEndParts[] = $arrTinyConfig[count($arrTinyConfig) - 2];
+					$cnt = 2;
+					$strEndPartsOne = $arrTinyConfig[count($arrTinyConfig) - $cnt];
+					while(strlen($strEndPartsOne) == 0)
+					{
+						$cnt++;
+						$strEndPartsOne = $arrTinyConfig[count($arrTinyConfig) - $cnt];
+					}
+					$arrEndParts[] = $strEndPartsOne;
 					$arrEndParts[] = $arrTinyConfig[count($arrTinyConfig) - 1];
 					
 					$arrTinyConfig = $this->getTinyConfigArray($arrTinyConfig, array_merge($arrStartParts, $arrEndParts));
