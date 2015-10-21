@@ -41,7 +41,7 @@ namespace TinyMcePluginLoader;
 */
 class TinyMcePluginLoader extends \System {
 	
-	private static $TINY_LOADER_REGEX = "/<script>\nwindow.tinymce && tinymce.init\(\{.*\}\);\n<\/script>/Us";
+	private static $TINY_LOADER_REGEX = "/<script>(\n|\r\n)window.tinymce && tinymce.init\(\{.*\}\);(\n|\r\n)<\/script>/Us";
 	
 	/**
 	* Adds the plugins to the config.
