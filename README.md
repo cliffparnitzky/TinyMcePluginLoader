@@ -89,6 +89,7 @@ These are the currently available bundles (packages of plugins) for easier insta
 
 These are the currently available setups, which redefines the TinyMCE toolbars:
 
+- [TinyMceZUpAll](https://github.com/cliffparnitzky/TinyMceZUpAll) - creates the toolbars with all known buttons
 - [TinyMceZUpClassic](https://github.com/cliffparnitzky/TinyMceZUpClassic) - creates the toolbars known from TinyMCE 3
 
 
