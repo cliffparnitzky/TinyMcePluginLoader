@@ -95,7 +95,7 @@ class TinyMcePluginLoader extends \System {
 					if (isset($GLOBALS['TL_HOOKS']['editTinyMcePluginLoaderConfig']) && is_array($GLOBALS['TL_HOOKS']['editTinyMcePluginLoaderConfig'])) {
 						foreach ($GLOBALS['TL_HOOKS']['editTinyMcePluginLoaderConfig'] as $callback) {
 							$this->import($callback[0]);
-							$arrTinyConfig = $this->$callback[0]->$callback[1]($arrTinyConfig);
+							$arrTinyConfig = $this->{$callback[0]}->{$callback[1]}($arrTinyConfig);
 						}
 					}
 					array_splice($arrContentElements, (($insertCounter++ * 2)  + 1), 0, array($this->rebuildTinyConfig($arrStartParts, $arrEndParts, $arrTinyConfig)));
