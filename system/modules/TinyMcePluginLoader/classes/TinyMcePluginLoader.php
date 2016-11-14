@@ -42,6 +42,7 @@ namespace TinyMcePluginLoader;
 class TinyMcePluginLoader extends \System {
 	
 	private static $TINY_LOADER_REGEX = "/<script>(\n|\r\n)+window.tinymce && tinymce.init\(\{.*\}\);(\n|\r\n)+<\/script>/Us";
+	private static $TINY_LOADER_REGEX_3_5_16 = "/<script>(\n|\r\n)+setTimeout\(function\(\) \{(\n|\r\n)+( )+window.tinymce && tinymce.init\(\{.*\}\);(\n|\r\n)+\}, 0\);(\n|\r\n)+<\/script>/Us";
 	
 	/**
 	* Adds the plugins to the config.
@@ -53,34 +54,15 @@ class TinyMcePluginLoader extends \System {
 				 count($GLOBALS['TINY_BUTTONS_3']) > 0 || 
 				 count($GLOBALS['TL_HOOKS']['editTinyMcePluginLoaderConfig']) > 0) && 
 				 (strrpos($strTemplate, 'be_main', -strlen($strTemplate)) !== FALSE || strrpos($strTemplate, 'fe_page', -strlen($strTemplate)) !== FALSE)) {
-			if (preg_match_all(static::$TINY_LOADER_REGEX, $strContent, $tinyConfigs) > 0) {
-				$arrContentElements = preg_split(static::$TINY_LOADER_REGEX, $strContent);
+			if (preg_match_all($this->getRegex(), $strContent, $tinyConfigs) > 0) {
+				$arrContentElements = preg_split($this->getRegex(), $strContent);
 				$insertCounter = 0;
 				
 				foreach ($tinyConfigs[0] as $tinyConfig) {
 					$arrTinyConfig = explode("\n", $tinyConfig);
 					
-					$arrStartParts = array();
-					$arrStartParts[] = $arrTinyConfig[0];
-					$cnt = 1;
-					$strStartPartsTwo = $arrTinyConfig[$cnt];
-					while(strlen($strStartPartsTwo) == 0)
-					{
-						$cnt++;
-						$strStartPartsTwo = $arrTinyConfig[$cnt];
-					}
-					$arrStartParts[] = $strStartPartsTwo;
-					
-					$arrEndParts = array();
-					$cnt = 2;
-					$strEndPartsOne = $arrTinyConfig[count($arrTinyConfig) - $cnt];
-					while(strlen($strEndPartsOne) == 0)
-					{
-						$cnt++;
-						$strEndPartsOne = $arrTinyConfig[count($arrTinyConfig) - $cnt];
-					}
-					$arrEndParts[] = $strEndPartsOne;
-					$arrEndParts[] = $arrTinyConfig[count($arrTinyConfig) - 1];
+					$arrStartParts = $this->getStartParts($arrTinyConfig);
+					$arrEndParts = $this->getEndParts($arrTinyConfig);
 					
 					$arrTinyConfig = $this->getTinyConfigArray($arrTinyConfig, array_merge($arrStartParts, $arrEndParts));
 					
@@ -145,7 +127,7 @@ class TinyMcePluginLoader extends \System {
 			if (strrpos($value, ",") === false) {
 				$value .= ",";
 			}
-			$strTinyConfig .= "  " . $key . ": " . $value . "\n";
+			$strTinyConfig .= "  " . ($this->getStartEndPartCount() == 3 ? "  " : "") . $key . ": " . $value . "\n";
 		}
 		
 		foreach ($arrEndParts as $part) {
@@ -196,6 +178,66 @@ class TinyMcePluginLoader extends \System {
 	 */
 	private function getCleanValue($strValue) {
 		return substr($strValue, 1, strlen($strValue) - 3);
+	}
+	
+	/**
+	 * Return the correct regex
+	 */
+	private function getRegex() {
+		if (version_compare(VERSION . '.' . BUILD, '3.5.16', '>=')) {
+			return static::$TINY_LOADER_REGEX_3_5_16;
+		}
+		return static::$TINY_LOADER_REGEX;
+	}
+	
+	/**
+	 * Return an array of the start part aof the config
+	 */
+	private function getStartParts($arrTinyConfig) {
+		$arrStartParts = array();
+		
+		$part = 0;
+		$row = 0;
+		while($part < $this->getStartEndPartCount()) {
+			while(strlen(trim($arrTinyConfig[$row])) == 0)
+			{
+				$row++;
+			}
+			$arrStartParts[] = $arrTinyConfig[$row];
+			$row++;
+			$part++;
+		}
+		return $arrStartParts;
+	}
+	
+	/**
+	 * Return an array of the end part aof the config
+	 */
+	private function getEndParts($arrTinyConfig) {
+		$arrEndParts = array();
+		
+		$part = 0;
+		$row = count($arrTinyConfig) - 1;
+		while($part < $this->getStartEndPartCount()) {
+			while(strlen(trim($arrTinyConfig[$row])) == 0)
+			{
+				$row--;
+			}
+			$arrEndParts[] = $arrTinyConfig[$row];
+			$row--;
+			$part++;
+		}
+		return array_reverse($arrEndParts);
+	}
+	
+	/**
+	 * Return the count of parts of the start/end elements in the regex.
+	 */
+	private function getStartEndPartCount() {
+		if (version_compare(VERSION . '.' . BUILD, '3.5.16', '>=')) {
+			return 3;
+		}
+		return 2;
 	}
 }
 
