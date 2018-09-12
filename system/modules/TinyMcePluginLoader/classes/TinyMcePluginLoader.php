@@ -149,7 +149,7 @@ class TinyMcePluginLoader extends \System {
 			unset($modifiedTinyConfig["toolbar"]);
 		}
 		
-		if (count($GLOBALS[$lookup]) > 0) {
+		if (is_array($GLOBALS[$lookup]) && count($GLOBALS[$lookup]) > 0) {
 			$value = $modifiedTinyConfig[$key];
 			$value = $this->getCleanValue($value);
 			
