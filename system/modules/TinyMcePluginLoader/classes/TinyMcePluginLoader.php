@@ -184,7 +184,10 @@ class TinyMcePluginLoader extends \System {
 	 * Return the correct regex
 	 */
 	private function getRegex() {
-		if (version_compare(VERSION . '.' . BUILD, '3.5.16', '>=')) {
+		if ((version_compare(VERSION . '.' . BUILD, '4.4.47', '>=') && version_compare(VERSION, '4.5', '<=')) || version_compare(VERSION . '.' . BUILD, '4.8.8', '>=')) {
+			return static::$TINY_LOADER_REGEX;
+		}
+		else if (version_compare(VERSION . '.' . BUILD, '3.5.16', '>=')) {
 			return static::$TINY_LOADER_REGEX_3_5_16;
 		}
 		return static::$TINY_LOADER_REGEX;
