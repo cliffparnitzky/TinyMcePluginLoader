@@ -2,7 +2,7 @@
 
 /**
 * Contao Open Source CMS
-* Copyright (C) 2005-2015 Leo Feyer
+* Copyright (C) 2005-2019 Leo Feyer
 *
 * Formerly known as TYPOlight Open Source CMS.
 *
@@ -21,7 +21,7 @@
 * Software Foundation website at <http://www.gnu.org/licenses/>.
 *
 * PHP version 5
-* @copyright  Cliff Parnitzky 2012-2015
+* @copyright  Cliff Parnitzky 2012-2019
 * @author     Cliff Parnitzky
 * @package    TinyMcePluginLoader
 * @license    LGPL
@@ -36,7 +36,7 @@ namespace TinyMcePluginLoader;
 * Class TinyMcePluginLoader
 *
 * Load additional TinyMCE plugins.
-* @copyright  Cliff Parnitzky 2012-2015
+* @copyright  Cliff Parnitzky 2012-2019
 * @author     Cliff Parnitzky
 */
 class TinyMcePluginLoader extends \System {
@@ -184,7 +184,10 @@ class TinyMcePluginLoader extends \System {
 	 * Return the correct regex
 	 */
 	private function getRegex() {
-		if (version_compare(VERSION . '.' . BUILD, '3.5.16', '>=')) {
+		if ((version_compare(VERSION . '.' . BUILD, '4.4.47', '>=') && version_compare(VERSION, '4.5', '<=')) || version_compare(VERSION . '.' . BUILD, '4.8.8', '>=')) {
+			return static::$TINY_LOADER_REGEX;
+		}
+		else if (version_compare(VERSION . '.' . BUILD, '3.5.16', '>=')) {
 			return static::$TINY_LOADER_REGEX_3_5_16;
 		}
 		return static::$TINY_LOADER_REGEX;
@@ -234,7 +237,10 @@ class TinyMcePluginLoader extends \System {
 	 * Return the count of parts of the start/end elements in the regex.
 	 */
 	private function getStartEndPartCount() {
-		if (version_compare(VERSION . '.' . BUILD, '3.5.16', '>=')) {
+		if ((version_compare(VERSION . '.' . BUILD, '4.4.47', '>=') && version_compare(VERSION, '4.5', '<=')) || version_compare(VERSION . '.' . BUILD, '4.8.8', '>=')) {
+			return 2;
+		}
+		else if (version_compare(VERSION . '.' . BUILD, '3.5.16', '>=')) {
 			return 3;
 		}
 		return 2;
