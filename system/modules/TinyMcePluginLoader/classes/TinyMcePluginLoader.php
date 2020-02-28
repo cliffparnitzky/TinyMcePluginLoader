@@ -48,7 +48,7 @@ class TinyMcePluginLoader extends \System {
 	* Adds the plugins to the config.
 	*/
 	public function outputTemplate($strContent, $strTemplate) {
-		if ((count($GLOBALS['TINY_PLUGINS']) > 0 || 
+		if (isset($GLOBALS['TINY_PLUGINS']) && (count($GLOBALS['TINY_PLUGINS']) > 0 || 
 				 count($GLOBALS['TINY_BUTTONS_1']) > 0 || 
 				 count($GLOBALS['TINY_BUTTONS_2']) > 0 || 
 				 count($GLOBALS['TINY_BUTTONS_3']) > 0 || 
