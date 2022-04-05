@@ -21,7 +21,7 @@
 * Software Foundation website at <http://www.gnu.org/licenses/>.
 *
 * PHP version 5
-* @copyright  Cliff Parnitzky 2012-2019
+* @copyright  Cliff Parnitzky 2012-2022
 * @author     Cliff Parnitzky
 * @package    TinyMcePluginLoader
 * @license    LGPL
@@ -36,13 +36,12 @@ namespace TinyMcePluginLoader;
 * Class TinyMcePluginLoader
 *
 * Load additional TinyMCE plugins.
-* @copyright  Cliff Parnitzky 2012-2019
+* @copyright  Cliff Parnitzky 2012-2022
 * @author     Cliff Parnitzky
 */
 class TinyMcePluginLoader extends \System {
 	
 	private static $TINY_LOADER_REGEX = "/<script>(\n|\r\n)+window.tinymce && tinymce.init\(\{.*\}\);(\n|\r\n)+<\/script>/Us";
-	private static $TINY_LOADER_REGEX_3_5_16 = "/<script>(\n|\r\n)+setTimeout\(function\(\) \{(\n|\r\n)+( )+window.tinymce && tinymce.init\(\{.*\}\);(\n|\r\n)+\}, 0\);(\n|\r\n)+<\/script>/Us";
 	
 	/**
 	* Adds the plugins to the config.
@@ -177,6 +176,7 @@ class TinyMcePluginLoader extends \System {
 	 * Remove surrounding quotes, etc.
 	 */
 	private function getCleanValue($strValue) {
+		$strValue = trim($strValue);
 		return substr($strValue, 1, strlen($strValue) - 3);
 	}
 	
@@ -184,12 +184,6 @@ class TinyMcePluginLoader extends \System {
 	 * Return the correct regex
 	 */
 	private function getRegex() {
-		if ((version_compare(VERSION . '.' . BUILD, '4.4.47', '>=') && version_compare(VERSION, '4.5', '<=')) || version_compare(VERSION . '.' . BUILD, '4.8.8', '>=')) {
-			return static::$TINY_LOADER_REGEX;
-		}
-		else if (version_compare(VERSION . '.' . BUILD, '3.5.16', '>=')) {
-			return static::$TINY_LOADER_REGEX_3_5_16;
-		}
 		return static::$TINY_LOADER_REGEX;
 	}
 	
@@ -237,12 +231,6 @@ class TinyMcePluginLoader extends \System {
 	 * Return the count of parts of the start/end elements in the regex.
 	 */
 	private function getStartEndPartCount() {
-		if ((version_compare(VERSION . '.' . BUILD, '4.4.47', '>=') && version_compare(VERSION, '4.5', '<=')) || version_compare(VERSION . '.' . BUILD, '4.8.8', '>=')) {
-			return 2;
-		}
-		else if (version_compare(VERSION . '.' . BUILD, '3.5.16', '>=')) {
-			return 3;
-		}
 		return 2;
 	}
 }
