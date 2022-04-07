@@ -7,7 +7,7 @@ Contao Extension: TinyMcePluginLoader
 
 Special extension that will load additional TinyMCE plugins (check out the available plugins: [here](#plugins)).
 
-Now for TinyMCE 4.
+Now for TinyMCE 5.
 
 
 Installation
@@ -28,8 +28,7 @@ https://github.com/cliffparnitzky/TinyMcePluginLoader/issues
 Compatibility
 -------------
 
-- Contao version >= 3.3.0 ... <  3.6.0
-- Contao version >= 4.4.0
+- Contao version >= 4.13.0
 
 
 Dependency
@@ -50,7 +49,7 @@ These are the currently integrated plugins and their respective availability sta
 
 | Plugin                                                                               | Contao 3.2 compatible                                                                    | Contao 3.5 compatible                                                                    | Contao 4.4/4.9 compatible                                                                    | Contao 4.13 compatible                                                          |
 | ------------------------------------------------------------------------------------ | :--------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------: |
-| [TinyMceAdvancedList](https://github.com/cliffparnitzky/TinyMceAdvancedList)         | ![Contao 3.2 ok](http://img.shields.io/badge/Contao%203.2-ok-green.svg?style=flat)       | ![Contao 3.5 ok](http://img.shields.io/badge/Contao%203.5-ok-green.svg?style=flat)       | ![Contao 4.4/4.9 ok](http://img.shields.io/badge/Contao%204.4%2F4.9-ok-green.svg?style=flat) | ![Contao 4.13 nok](http://img.shields.io/badge/Contao%204.13-nok-red.svg?style=flat) |
+| [TinyMceAdvancedList](https://github.com/cliffparnitzky/TinyMceAdvancedList)         | ![Contao 3.2 ok](http://img.shields.io/badge/Contao%203.2-ok-green.svg?style=flat)       | ![Contao 3.5 ok](http://img.shields.io/badge/Contao%203.5-ok-green.svg?style=flat)       | ![Contao 4.4/4.9 ok](http://img.shields.io/badge/Contao%204.4%2F4.9-ok-green.svg?style=flat) | ![Contao 4.13 ok](http://img.shields.io/badge/Contao%204.13-ok-green.svg?style=flat) |
 | [TinyMceAnchor](https://github.com/cliffparnitzky/TinyMceAnchor)                     | ![Contao 3.2 n/a](http://img.shields.io/badge/Contao%203.2-n/a-lightgrey.svg?style=flat) | ![Contao 3.5 ok](http://img.shields.io/badge/Contao%203.5-ok-green.svg?style=flat)       | ![Contao 4.4/4.9 ok](http://img.shields.io/badge/Contao%204.4%2F4.9-ok-green.svg?style=flat) | ![Contao 4.13 nok](http://img.shields.io/badge/Contao%204.13-nok-red.svg?style=flat) |
 | [TinyMceCodeMirror](https://github.com/cliffparnitzky/TinyMceCodeMirror)             | ![Contao 3.2 n/a](http://img.shields.io/badge/Contao%203.2-n/a-lightgrey.svg?style=flat) | ![Contao 3.5 ok](http://img.shields.io/badge/Contao%203.5-ok-green.svg?style=flat)       | ![Contao 4.4/4.9 ok](http://img.shields.io/badge/Contao%204.4%2F4.9-ok-green.svg?style=flat) | ![Contao 4.13 nok](http://img.shields.io/badge/Contao%204.13-nok-red.svg?style=flat) |
 | [TinyMceColorpicker](https://github.com/cliffparnitzky/TinyMceColorpicker)           | ![Contao 3.2 n/a](http://img.shields.io/badge/Contao%203.2-n/a-lightgrey.svg?style=flat) | ![Contao 3.5 ok](http://img.shields.io/badge/Contao%203.5-ok-green.svg?style=flat)       | ![Contao 4.4/4.9 ok](http://img.shields.io/badge/Contao%204.4%2F4.9-ok-green.svg?style=flat) | ![Contao 4.13 nok](http://img.shields.io/badge/Contao%204.13-nok-red.svg?style=flat) |
